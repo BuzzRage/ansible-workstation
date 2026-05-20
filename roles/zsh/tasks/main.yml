@@ -1,0 +1,27 @@
+- name: Ensure packages for zsh installation are present
+  hosts: all
+  apt:
+    name: zsh
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Deploy .zshrc
+  hosts: all
+  files:
+    src: zshrc.conf
+    dst: "{{ zsh_home }}/.zshrc"
+    owner: "{{ zsh_user }}"
+    group: "{{ zsh_user }}"
+    mode: "0644"
+  become_user: "{{ zsh_user }}"
+
+- name: Check zsh version
+  command: "{{ zsh_path }} --version"
+  register: zsh_version
+  changed_when: false
+  become: no
+
+- name: Show zsh version
+  debug:
+    msg: "{{ zsh_version.stdout }}"

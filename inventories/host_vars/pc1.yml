@@ -1,0 +1,14 @@
+---
+zsh_user: "{{ ansible_user | default('$USER') }}"
+zsh_home: "/home/{{ zsh_user }}"
+zsh_theme: "robbyrussell"
+zsh_path: "/usr/bin/zsh"
+install_autosuggestions: true
+install_syntax_highlighting: true
+extra_path: ""
+zsh_packages:
+  - zsh
+  - curl
+  - git
+
+
