@@ -2,7 +2,7 @@
 An workstation installed and configured with Ansible.
 
 TODO:
-- ansibliser .zshrc ( omz + theme )
+- ansibliser .zshrc ( omz + theme powerlevel10k)
 - kde plasma config + raccourcis clavier
 - pref thunderbird / firefox avec comptes
 - keepass
