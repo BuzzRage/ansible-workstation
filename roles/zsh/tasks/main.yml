@@ -1,27 +1,26 @@
+---
 - name: Ensure packages for zsh installation are present
-  hosts: all
-  apt:
+  ansible.builtin.apt:
     name: zsh
     state: present
-    update_cache: yes
-  become: yes
+    update_cache: true
 
 - name: Deploy .zshrc
-  hosts: all
-  files:
-    src: zshrc.conf
-    dst: "{{ zsh_home }}/.zshrc"
+  ansible.builtin.copy:
+    src: "zshrc-example.conf"
+    dest: "{{ zsh_home }}/.zshrc"
     owner: "{{ zsh_user }}"
     group: "{{ zsh_user }}"
     mode: "0644"
   become_user: "{{ zsh_user }}"
 
 - name: Check zsh version
-  command: "{{ zsh_path }} --version"
+  ansible.builtin.command:
+    cmd: "{{ zsh_path }} --version"
   register: zsh_version
   changed_when: false
-  become: no
+  become: false
 
 - name: Show zsh version
-  debug:
+  ansible.builtin.debug:
     msg: "{{ zsh_version.stdout }}"

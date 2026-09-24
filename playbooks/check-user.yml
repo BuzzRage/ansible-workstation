@@ -1,0 +1,12 @@
+---
+- name: Check remote user
+  hosts: workstations
+  gather_facts: true
+
+  tasks:
+    - name: Show detected user
+      ansible.builtin.debug:
+        msg:
+          - "Remote user: {{ ansible_user_id }}"
+          - "Configured SSH user: {{ ansible_user | default('not defined') }}"
+          - "Home directory: {{ ansible_env.HOME | default('not available') }}"
