@@ -3,5 +3,11 @@
   hosts: all
   become: true
 
+  vars_files:
+    - ../inventories/group_vars/workstations/secrets.yaml
+
+  vars:
+   ansible_become_pass: "{{ ssh_pwd }}"
+
   roles:
     - zsh

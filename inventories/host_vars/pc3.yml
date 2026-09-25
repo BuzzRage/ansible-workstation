@@ -6,7 +6,7 @@ install_autosuggestions: true
 install_syntax_highlighting: true
 extra_path: ""
 
-ssh_pwd: "{{ ssh_passwd_pc1 }}"
+ssh_pwd: "{{ ssh_passwd_pc3 }}"
 
 zsh_packages:
   - zsh
