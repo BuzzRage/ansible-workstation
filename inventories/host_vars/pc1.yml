@@ -5,9 +5,10 @@ zsh_path: "/usr/bin/zsh"
 install_autosuggestions: true
 install_syntax_highlighting: true
 extra_path: ""
+
+ssh_pwd: "{{ ssh_passwd_pc1 }}"
+
 zsh_packages:
   - zsh
   - curl
   - git
-
-
